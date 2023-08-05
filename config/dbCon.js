@@ -1,7 +1,7 @@
 // Option 3: Passing parameters separately (other dialects)
 
 const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize("demo", "aa", "123123", {
+const sequelize = new Sequelize("bms", "aa", "123123", {
   host: "localhost",
   dialect: "mysql" /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */,
 });
