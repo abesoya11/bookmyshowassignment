@@ -42,6 +42,7 @@ exports.getDates = async (req, res) => {
 // client sends date, theatre id and output is all movies in that theatre on that date
 exports.getAllMovieFromDate = async (req, res) => {
   let reqDate = new Date(req.query.date);
+  let reqTheatreId = req.query.theatreId;
   let today = new Date().getDate();
   let startDate = new Date(req.query.date + " 00:00:00 ");
   console.log("todays sarts date is " + startDate);
@@ -61,6 +62,7 @@ exports.getAllMovieFromDate = async (req, res) => {
       attributes: ["movieId", "theatreId", "slot"],
       where: {
         ShowDate: { [Op.between]: [startDate, endDate] },
+        theatreId: reqTheatreId,
       },
       include: [
         {
@@ -74,6 +76,7 @@ exports.getAllMovieFromDate = async (req, res) => {
       ],
     });
     let resObj = [];
+
     for (key in result) {
       let obj = {};
 

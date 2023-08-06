@@ -32,6 +32,7 @@ exports.slotEntry = async (req, res) => {
   // Create a new user
 
   const date = new Date(req.body.ShowDate);
+  console.log(date);
 
   console.log(date);
   try {
