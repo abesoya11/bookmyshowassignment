@@ -27,19 +27,6 @@ exports.theatreEntry = async (req, res) => {
   }
 };
 
-// exports.theatreMovieEntry = async (req, res) => {
-//   console.log("post movies api hit");
-//   // Create a new user
-//   try {
-//     const result = await theatre.create({ movieId: req.body.name, theatreId: req.body.city });
-//     res.send(result);
-//     console.log("try block");
-//   } catch (err) {
-//     console.log("catch block" + err);
-//     res.send(err);
-//   }
-// };
-
 exports.slotEntry = async (req, res) => {
   console.log("post slot api hit");
   // Create a new user

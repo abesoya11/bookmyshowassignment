@@ -5,6 +5,7 @@ const movie = sequelize.define("movie", {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
+    timestamps: false,
   },
 });
 
@@ -12,7 +13,7 @@ const theatre = sequelize.define("theatre", {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
-
+    timestamps: false,
     unique: "compositeIndex",
   },
   city: {
@@ -46,16 +47,15 @@ const movieTheatre = sequelize.define("movieTheatre", {
   },
 });
 console.log("running relation creation");
-// doors.belongsToMany(
-//     models.users,
-//     {
-//         through: { model: models.usersDoors, unique: false },
-//         foreignKey: 'door_uid'
-//     }
-// );
 
 movie.belongsToMany(theatre, { through: { model: slot, unique: false }, foreignKey: "movieId" });
 theatre.belongsToMany(movie, { through: { model: slot, unique: false }, foreignKey: "theatreId" });
+
+theatre.hasMany(slot);
+slot.belongsTo(theatre);
+
+movie.hasMany(slot);
+slot.belongsTo(movie);
 
 module.exports = { movie, theatre, slot };
 

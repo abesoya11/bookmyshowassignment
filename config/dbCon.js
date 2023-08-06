@@ -3,6 +3,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = new Sequelize("bms", "aa", "123123", {
   host: "localhost",
+  timezone: "+05:30",
   dialect: "mysql" /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */,
 });
 
